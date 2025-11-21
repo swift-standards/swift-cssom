@@ -18,8 +18,8 @@ import Foundation
 ///
 /// - SeeAlso: [MDN Web Docs on dashed-ident values](https://developer.mozilla.org/en-US/docs/Web/CSS/dashed-ident)
 public struct DashedIdent: Sendable, Hashable {
-    /// The string value of the dashed identifier
-    private let value: String
+    /// The string value of the dashed identifier (without the -- prefix)
+    public let value: String
 
     /// Creates a new dashed identifier with the given value
     ///
@@ -28,9 +28,9 @@ public struct DashedIdent: Sendable, Hashable {
     ///         If the value doesn't start with `--`, they will be added.
     public init(_ value: String) {
         if value.hasPrefix("--") {
-            self.value = value
+            self.value = String(value.dropFirst(2))
         } else {
-            self.value = "--\(value)"
+            self.value = value
         }
     }
 
@@ -76,10 +76,28 @@ extension DashedIdent: ExpressibleByStringLiteral {}
 
 /// Provides string conversion for CSS output
 extension DashedIdent: CustomStringConvertible {
-    /// Converts the dashed identifier to its CSS string representation
+    /// Converts the dashed identifier to its properly serialized CSS representation
     ///
-    /// This method returns the identifier value as a string.
+    /// The identifier is serialized according to the CSSOM specification, with the `--` prefix
+    /// followed by the properly escaped identifier name.
+    ///
+    /// - SeeAlso: [CSSOM: Serialize an Identifier](https://drafts.csswg.org/cssom/#serialize-an-identifier)
     public var description: String {
-        return value
+        return "--\(serializeIdentifier(value))"
+    }
+
+    /// Creates a CSS custom property variable reference (instance method)
+    ///
+    /// - Returns: A string representing the CSS `var()` function call
+    public func `var`() -> String {
+        return "var(--\(serializeIdentifier(value)))"
+    }
+
+    /// Creates a CSS custom property variable reference with a fallback value (instance method)
+    ///
+    /// - Parameter fallback: The fallback value to use if the custom property is not defined
+    /// - Returns: A string representing the CSS `var()` function call with fallback
+    public func `var`(fallback: String) -> String {
+        return "var(--\(serializeIdentifier(value)), \(fallback))"
     }
 }

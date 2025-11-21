@@ -20,7 +20,7 @@ import Foundation
 /// - SeeAlso: [MDN Web Docs on custom-ident values](https://developer.mozilla.org/en-US/docs/Web/CSS/custom-ident)
 public struct CustomIdent: Sendable, Hashable {
     /// The string value of the custom identifier
-    private let value: String
+    public let value: String
 
     /// Creates a new custom identifier with the given value
     ///
@@ -55,10 +55,13 @@ extension CustomIdent: ExpressibleByStringLiteral {}
 
 /// Provides string conversion for CSS output
 extension CustomIdent: CustomStringConvertible {
-    /// Converts the custom identifier to its CSS string representation
+    /// Converts the custom identifier to its properly serialized CSS representation
     ///
-    /// This method returns the identifier value as a string.
+    /// The identifier is serialized according to the CSSOM specification, with proper
+    /// escaping of special characters, control characters, and leading digits.
+    ///
+    /// - SeeAlso: [CSSOM: Serialize an Identifier](https://drafts.csswg.org/cssom/#serialize-an-identifier)
     public var description: String {
-        return value
+        return serializeIdentifier(value)
     }
 }
