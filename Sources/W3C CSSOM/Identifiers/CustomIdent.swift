@@ -1,5 +1,3 @@
-import Foundation
-
 /// Represents a CSS custom identifier for user-defined values.
 ///
 /// The `CustomIdent` data type denotes arbitrary user-defined strings used as identifiers

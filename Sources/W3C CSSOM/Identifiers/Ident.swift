@@ -1,5 +1,3 @@
-import Foundation
-
 /// Represents a CSS identifier string.
 ///
 /// The `Ident` type represents an arbitrary string used as an identifier in CSS.

@@ -1,5 +1,3 @@
-import Foundation
-
 /// Serializes a string according to the CSSOM specification.
 ///
 /// This function implements the string serialization algorithm defined in
@@ -81,5 +79,5 @@ func serializeString(_ string: String) -> String {
 /// - U+001F → `\1f `
 /// - U+007F → `\7f `
 private func escapeAsCodePoint(_ scalar: Unicode.Scalar) -> String {
-    return String(format: "\\%x ", scalar.value)
+    return "\\\(String(scalar.value, radix: 16)) "
 }

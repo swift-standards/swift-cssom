@@ -1,5 +1,3 @@
-import Foundation
-
 /// Represents a CSS URL value.
 ///
 /// The `Url` type is a pointer to a resource such as an image, video, CSS file, font file, or SVG.

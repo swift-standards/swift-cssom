@@ -1,5 +1,3 @@
-import Foundation
-
 /// Represents a CSS dashed identifier for user-defined custom properties and values.
 ///
 /// The `DashedIdent` data type denotes arbitrary user-defined strings that start with two dashes

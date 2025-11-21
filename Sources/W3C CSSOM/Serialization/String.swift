@@ -1,5 +1,3 @@
-import Foundation
-
 /// Represents a CSS string value.
 ///
 /// The `CSSString` type represents a sequence of characters used in CSS properties

@@ -1,5 +1,3 @@
-import Foundation
-
 /// Serializes an identifier according to the CSSOM specification.
 ///
 /// This function implements the identifier serialization algorithm defined in
@@ -118,5 +116,5 @@ private func isValidIdentifierCharacter(_ scalar: Unicode.Scalar) -> Bool {
 /// - U+001F → `\1f `
 /// - U+007F → `\7f `
 private func escapeAsCodePoint(_ scalar: Unicode.Scalar) -> String {
-    return String(format: "\\%x ", scalar.value)
+    return "\\\(String(scalar.value, radix: 16)) "
 }
