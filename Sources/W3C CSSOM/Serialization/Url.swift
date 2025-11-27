@@ -35,19 +35,6 @@ public struct Url: Sendable, Hashable {
         self.value = value
     }
 
-    /// Creates a new CSS URL value (deprecated API for backward compatibility)
-    ///
-    /// - Parameters:
-    ///   - value: The raw URL string
-    ///   - quotes: Ignored - CSSOM always uses double quotes
-    ///
-    /// - Note: This initializer is provided for backward compatibility. Per CSSOM specification,
-    ///         URLs are always serialized with double quotes. The `quotes` parameter is ignored.
-    @available(*, deprecated, message: "Per CSSOM spec, URLs are always serialized with double quotes. Use init(_:) instead.")
-    public init(_ value: String, quotes: CSSString.Quotes?) {
-        self.value = value
-    }
-
     /// Creates a data URL for an embedded resource
     ///
     /// - Parameters:

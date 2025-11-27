@@ -25,13 +25,13 @@
 public struct CSSString: Sendable, Hashable {
     /// The raw string value (before serialization)
     public let value: String
-
-    /// Quote style enum (deprecated, kept for backward compatibility)
-    @available(*, deprecated, message: "Per CSSOM spec, strings are always serialized with double quotes")
-    public enum Quotes: Sendable, Hashable {
-        case single
-        case double
-    }
+//
+//    /// Quote style enum (deprecated, kept for backward compatibility)
+//    @available(*, deprecated, message: "Per CSSOM spec, strings are always serialized with double quotes")
+//    public enum Quotes: Sendable, Hashable {
+//        case single
+//        case double
+//    }
 
     /// Creates a new CSS string value
     ///
@@ -42,19 +42,19 @@ public struct CSSString: Sendable, Hashable {
     public init(_ value: String) {
         self.value = value
     }
-
-    /// Creates a new CSS string value (deprecated API for backward compatibility)
-    ///
-    /// - Parameters:
-    ///   - value: The raw string value
-    ///   - quotes: Ignored - CSSOM always uses double quotes
-    ///
-    /// - Note: This initializer is provided for backward compatibility. Per CSSOM specification,
-    ///         strings are always serialized with double quotes. The `quotes` parameter is ignored.
-    @available(*, deprecated, message: "Per CSSOM spec, strings are always serialized with double quotes. Use init(_:) instead.")
-    public init(_ value: String, quotes: Quotes) {
-        self.value = value
-    }
+//
+//    /// Creates a new CSS string value (deprecated API for backward compatibility)
+//    ///
+//    /// - Parameters:
+//    ///   - value: The raw string value
+//    ///   - quotes: Ignored - CSSOM always uses double quotes
+//    ///
+//    /// - Note: This initializer is provided for backward compatibility. Per CSSOM specification,
+//    ///         strings are always serialized with double quotes. The `quotes` parameter is ignored.
+//    @available(*, deprecated, message: "Per CSSOM spec, strings are always serialized with double quotes. Use init(_:) instead.")
+//    public init(_ value: String, quotes: Quotes) {
+//        self.value = value
+//    }
 
     /// Creates an empty CSS string value
     public static let empty = CSSString("")
