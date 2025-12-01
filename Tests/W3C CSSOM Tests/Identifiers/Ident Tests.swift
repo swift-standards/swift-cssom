@@ -4,6 +4,7 @@
 // Tests for CSSOM Ident type (Base identifier)
 
 import Testing
+
 @testable import W3C_CSSOM
 
 // MARK: - Basic Functionality
@@ -14,7 +15,7 @@ struct `Ident - Initialization` {
         ("test", "test"),
         ("my-ident", "my-ident"),
         ("_private", "_private"),
-        ("value123", "value123")
+        ("value123", "value123"),
     ])
     func `ident renders correctly`(value: String, expected: String) {
         let ident = Ident(value)
@@ -102,7 +103,7 @@ struct `Ident - Hashable Conformance` {
         let set: Set<Ident> = [
             Ident("a"),
             Ident("b"),
-            Ident("a") // duplicate
+            Ident("a"),  // duplicate
         ]
         #expect(set.count == 2)
     }
@@ -110,7 +111,7 @@ struct `Ident - Hashable Conformance` {
     @Test func `idents can be used as dictionary keys`() {
         let dict: [Ident: String] = [
             Ident("display"): "block",
-            Ident("position"): "absolute"
+            Ident("position"): "absolute",
         ]
         #expect(dict[Ident("display")] == "block")
     }

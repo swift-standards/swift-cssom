@@ -4,6 +4,7 @@
 // Tests for CSSOM CSSString type
 
 import Testing
+
 @testable import W3C_CSSOM
 
 // MARK: - Basic Functionality
@@ -14,7 +15,7 @@ struct `CSSString - CSSOM Serialization` {
     @Test(arguments: [
         ("Hello, world!", "\"Hello, world!\""),
         ("Content", "\"Content\""),
-        ("", "\"\"")
+        ("", "\"\""),
     ])
     func `string renders correctly`(text: String, expected: String) {
         let str = CSSString(text)
@@ -156,7 +157,7 @@ struct `CSSString - Edge Cases` {
         let str = CSSString(longText)
         #expect(str.description.hasPrefix("\""))
         #expect(str.description.hasSuffix("\""))
-        #expect(str.description.count == 1002) // 1000 chars + 2 quotes
+        #expect(str.description.count == 1002)  // 1000 chars + 2 quotes
     }
 
     @Test func `string with all escape characters`() {
@@ -186,7 +187,7 @@ struct `CSSString - CSS Property Usage` {
 
     @Test func `string in quotes property`() {
         let open = CSSString("\u{201C}")  // left double quotation mark
-        let close = CSSString("\u{201D}") // right double quotation mark
+        let close = CSSString("\u{201D}")  // right double quotation mark
         let property = "quotes: \(open) \(close)"
         #expect(property == "quotes: \"\u{201C}\" \"\u{201D}\"")
     }
@@ -220,7 +221,7 @@ struct `CSSString - Hashable Conformance` {
         let set: Set<CSSString> = [
             CSSString("a"),
             CSSString("b"),
-            CSSString("a")  // duplicate
+            CSSString("a"),  // duplicate
         ]
         #expect(set.count == 2)
     }

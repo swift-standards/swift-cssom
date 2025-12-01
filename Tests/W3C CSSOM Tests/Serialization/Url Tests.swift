@@ -4,6 +4,7 @@
 // Tests for CSSOM Url type
 
 import Testing
+
 @testable import W3C_CSSOM
 
 // MARK: - Basic Functionality
@@ -16,7 +17,7 @@ struct `Url - CSSOM Serialization` {
         ("images/background.png", "url(\"images/background.png\")"),
         ("https://example.com/image.jpg", "url(\"https://example.com/image.jpg\")"),
         ("../assets/logo.svg", "url(\"../assets/logo.svg\")"),
-        ("/absolute/path.png", "url(\"/absolute/path.png\")")
+        ("/absolute/path.png", "url(\"/absolute/path.png\")"),
     ])
     func `url renders correctly`(path: String, expected: String) {
         let url = Url(path)

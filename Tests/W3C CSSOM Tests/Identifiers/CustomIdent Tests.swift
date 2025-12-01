@@ -4,6 +4,7 @@
 // Tests for CSSOM CustomIdent type
 
 import Testing
+
 @testable import W3C_CSSOM
 
 // MARK: - Basic Functionality
@@ -14,7 +15,7 @@ struct `CustomIdent - Initialization` {
         ("my-animation", "my-animation"),
         ("slideIn", "slideIn"),
         ("header-main", "header-main"),
-        ("_private", "_private")
+        ("_private", "_private"),
     ])
     func `custom ident renders correctly`(value: String, expected: String) {
         let ident = CustomIdent(value)
@@ -100,7 +101,7 @@ struct `CustomIdent - Hashable Conformance` {
         let set: Set<CustomIdent> = [
             CustomIdent("a"),
             CustomIdent("b"),
-            CustomIdent("a") // duplicate
+            CustomIdent("a"),  // duplicate
         ]
         #expect(set.count == 2)
     }
@@ -108,7 +109,7 @@ struct `CustomIdent - Hashable Conformance` {
     @Test func `idents can be used as dictionary keys`() {
         let dict: [CustomIdent: String] = [
             CustomIdent("header"): "Header content",
-            CustomIdent("footer"): "Footer content"
+            CustomIdent("footer"): "Footer content",
         ]
         #expect(dict[CustomIdent("header")] == "Header content")
     }

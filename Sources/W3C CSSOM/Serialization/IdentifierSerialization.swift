@@ -99,12 +99,12 @@ func serializeIdentifier(_ identifier: String) -> String {
 private func isValidIdentifierCharacter(_ scalar: Unicode.Scalar) -> Bool {
     let value = scalar.value
 
-    return (value >= 0x0041 && value <= 0x005A) ||  // A-Z
-           (value >= 0x0061 && value <= 0x007A) ||  // a-z
-           (value >= 0x0030 && value <= 0x0039) ||  // 0-9
-           value == 0x002D ||                        // -
-           value == 0x005F ||                        // _
-           value >= 0x0080                           // non-ASCII
+    return (value >= 0x0041 && value <= 0x005A)  // A-Z
+        || (value >= 0x0061 && value <= 0x007A)  // a-z
+        || (value >= 0x0030 && value <= 0x0039)  // 0-9
+        || value == 0x002D  // -
+        || value == 0x005F  // _
+        || value >= 0x0080  // non-ASCII
 }
 
 /// Escapes a Unicode scalar as a code point.

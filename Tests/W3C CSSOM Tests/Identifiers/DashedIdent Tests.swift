@@ -4,6 +4,7 @@
 // Tests for CSSOM DashedIdent type (CSS Custom Properties)
 
 import Testing
+
 @testable import W3C_CSSOM
 
 // MARK: - Basic Functionality
@@ -13,7 +14,7 @@ struct `DashedIdent - Initialization` {
     @Test(arguments: [
         ("primary-color", "--primary-color"),
         ("font-size", "--font-size"),
-        ("my-var", "--my-var")
+        ("my-var", "--my-var"),
     ])
     func `dashed ident auto-prefixes with double dash`(value: String, expected: String) {
         let ident = DashedIdent(value)
@@ -141,7 +142,7 @@ struct `DashedIdent - Hashable Conformance` {
         let set: Set<DashedIdent> = [
             DashedIdent("a"),
             DashedIdent("b"),
-            DashedIdent("a") // duplicate
+            DashedIdent("a"),  // duplicate
         ]
         #expect(set.count == 2)
     }
@@ -149,7 +150,7 @@ struct `DashedIdent - Hashable Conformance` {
     @Test func `idents can be used as dictionary keys`() {
         let dict: [DashedIdent: String] = [
             DashedIdent("primary-color"): "#007bff",
-            DashedIdent("secondary-color"): "#6c757d"
+            DashedIdent("secondary-color"): "#6c757d",
         ]
         #expect(dict[DashedIdent("primary-color")] == "#007bff")
     }
