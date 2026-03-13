@@ -1,5 +1,5 @@
 // CustomIdent Tests.swift
-// swift-cssom
+// swift-w3c-cssom
 //
 // Tests for CSSOM CustomIdent type
 

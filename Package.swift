@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-cssom",
+    name: "swift-w3c-cssom",
     platforms: [
         .macOS(.v26),
         .iOS(.v26),

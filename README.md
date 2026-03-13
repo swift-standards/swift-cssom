@@ -1,4 +1,4 @@
-# swift-cssom
+# swift-w3c-cssom
 
 A spec-compliant Swift implementation of the W3C CSS Object Model (CSSOM) serialization algorithms.
 
@@ -22,7 +22,7 @@ Add to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/coenttb/swift-cssom", from: "1.0.0")
+    .package(url: "https://github.com/coenttb/swift-w3c-cssom", from: "1.0.0")
 ]
 ```
 
@@ -32,7 +32,7 @@ Then add the dependency to your target:
 .target(
     name: "YourTarget",
     dependencies: [
-        .product(name: "W3C CSSOM", package: "swift-cssom")
+        .product(name: "W3C CSSOM", package: "swift-w3c-cssom")
     ]
 )
 ```
@@ -187,7 +187,7 @@ This implementation follows:
 
 ## Related Packages
 
-- **[swift-w3c-css](https://github.com/coenttb/swift-w3c-css)** - Comprehensive W3C CSS implementation using swift-cssom
+- **[swift-w3c-css](https://github.com/coenttb/swift-w3c-css)** - Comprehensive W3C CSS implementation using swift-w3c-cssom
 - **[swift-whatwg-url](https://github.com/swift-standards/swift-whatwg-url)** - WHATWG URL Living Standard (for URL parsing, not serialization)
 
 ## Contributing

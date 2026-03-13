@@ -1,5 +1,5 @@
 // Ident Tests.swift
-// swift-cssom
+// swift-w3c-cssom
 //
 // Tests for CSSOM Ident type (Base identifier)
 

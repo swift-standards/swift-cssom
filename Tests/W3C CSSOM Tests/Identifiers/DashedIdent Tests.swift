@@ -1,5 +1,5 @@
 // DashedIdent Tests.swift
-// swift-cssom
+// swift-w3c-cssom
 //
 // Tests for CSSOM DashedIdent type (CSS Custom Properties)
 
