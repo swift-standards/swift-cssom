@@ -1,0 +1,11 @@
+# .github/metadata.yaml
+# Triaged by AI-assisted bulk pass (2026-04-29).
+description: "Swift implementation of W3C CSSOM."
+topics:
+  - standards
+  - w3c
+  - cssom
+  - css
+  - dom
+  - web-standards
+homepage: "https://swift-institute.org"
